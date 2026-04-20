@@ -20,7 +20,7 @@ const TabIconBackground = ({ focused, icon, title }: any) => {
   } else {
     return (
       <View className="size-full mt-4 items-center justify-center rounded-full">
-        <Image source={icon} tintColor="a8b5db" className="size-5" />
+        <Image source={icon} tintColor="white" className="size-5" />
       </View>
     );
   }
