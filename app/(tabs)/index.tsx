@@ -5,6 +5,7 @@ import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { useRouter } from "expo-router";
+import { useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -16,6 +17,7 @@ import {
 
 export default function Index() {
   const router = useRouter();
+  const [query, setQuery] = useState("");
 
   const {
     data: movies,
@@ -47,6 +49,8 @@ export default function Index() {
         ) : (
           <View className="flex-1 mt-5">
             <SearchBar
+              value={query}
+              onChangeText={setQuery}
               onPress={() => router.push("/search")}
               placeholder="Search for movies, TV shows, actors..."
             />
