@@ -1,12 +1,12 @@
 import MovieCard from "@/components/MovieCard";
 import SearchBar from "@/components/SearchBar";
+import TrendingCard from "@/components/TrendingCard";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
 import { getTrendingMovies } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import { useRouter } from "expo-router";
-import { useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -18,7 +18,7 @@ import {
 
 export default function Index() {
   const router = useRouter();
-  const [query, setQuery] = useState("");
+  // const [query, setQuery] = useState("");
 
   const {
     data: trendingMovies,
@@ -79,7 +79,8 @@ export default function Index() {
                 className="mb-4 mt-3"
                 data={trendingMovies}
                 renderItem={({ item, index }) => (
-                  <Text className="text-white text-sm">{item.title}</Text>
+                  // <Text className="text-white text-sm">{item.title}</Text> <-- Leaving this in to remind myself of the example version of this.
+                  <TrendingCard movie={item} index={index} />
                 )}
                 keyExtractor={(item) => item.movie_id.toString()}
               />
